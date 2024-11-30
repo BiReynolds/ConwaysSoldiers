@@ -1,0 +1,36 @@
+﻿<Window x:Class="ConwaysSoldiers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConwaysSoldiers"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                AncestorType={x:Type Grid}},Path=ActualHeight}"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="Azure" Name="SideBar">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Label Name="LevelLabel" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0">Level 2</Label>
+            <Button FontSize="25" Grid.Row="1" Click="ToggleSetup" Name="SetupButton">End Setup Phase</Button>
+            <Button FontSize="25" Grid.Row="2" Click="GetNextLevel" Name="NextLevelButton" IsEnabled="false">Next Level</Button>
+            <Label FontSize="20" Grid.Row="3">
+                <TextBlock Name="FlavorText" TextWrapping="Wrap">Setup Phase: Place as many squares as you need to get to the top row.</TextBlock>
+            </Label>
+        </Grid>
+        <Grid Grid.Column="1" Name="GameGrid">
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+        </Grid>
+    </Grid>
+</Window>
